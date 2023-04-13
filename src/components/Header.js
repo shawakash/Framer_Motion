@@ -11,6 +11,7 @@ const Header = () => {
           viewBox="0 0 100 100"
           initial={{opacity: 0, x: -100}}
           animate={{opacity: 1, x: 0}}
+          transition={{delay: .3, duration: .25}}
         >
           <path
             fill="none"
@@ -25,6 +26,7 @@ const Header = () => {
       <motion.div className="title"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
+        transition={{delay: .2, duration: 0.1, type: 'spring', stiffness: 1200}}  // stnifness on spring and duration on tween
       >
         <h1>Pizza Joint</h1>
       </motion.div>

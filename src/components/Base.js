@@ -7,8 +7,9 @@ const Base = ({ addBase, pizza }) => {
 
   return (
     <motion.div className="base container"
-      initial={{ opacity: 0, }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, x: '100vh'}}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{delay: .5, type: 'spring', stiffness: 300}}
     >
 
       <motion.h3 animate={{ fontSize: 22, }}>Step 1: Choose Your Base</motion.h3>
@@ -34,6 +35,7 @@ const Base = ({ addBase, pizza }) => {
           whileTap={{ scale: .9 }}
           initial={{ x: '-100vh' }}
           animate={{ x: 0, scale: 1 }}
+          transition={{type: 'spring', stiffness: 300}}
         >
           <Link to="/toppings">
             <button>Next</button>
