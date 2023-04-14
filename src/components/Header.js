@@ -1,6 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const svgVariants = {
+  hidden: {
+    opacity: 0,
+    x: -100
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: .3, duration: .25
+    }
+  }
+}
+
+const titleVariants = {
+  hidden: { 
+    y: -100 
+  },
+  visible: { 
+    y: 0,
+    transition: {
+      delay: .2, 
+      duration: 0.1, 
+      type: 'spring', 
+      stiffness: 1200      // stnifness on spring and duration on tween
+    }
+  }
+}
+
 const Header = () => {
   return (
     <header>
@@ -9,9 +38,9 @@ const Header = () => {
           className="pizza-svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
-          initial={{opacity: 0, x: -100}}
-          animate={{opacity: 1, x: 0}}
-          transition={{delay: .3, duration: .25}}
+          variants={svgVariants}
+          initial='hidden'
+          animate='visible'
         >
           <path
             fill="none"
@@ -24,9 +53,9 @@ const Header = () => {
         </motion.svg>
       </div>
       <motion.div className="title"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{delay: .2, duration: 0.1, type: 'spring', stiffness: 1200}}  // stnifness on spring and duration on tween
+        variants={titleVariants}
+        initial='hidden'
+        animate='visible'
       >
         <h1>Pizza Joint</h1>
       </motion.div>
