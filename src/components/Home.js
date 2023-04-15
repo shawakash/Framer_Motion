@@ -10,7 +10,7 @@ const headerVariants = {
       delay: .75,
       type: 'spring',
       stiffness: 300,
-      
+
     }
   },
   hidden: {
@@ -34,32 +34,56 @@ export const baseVariants = {
 export const buttonVariant = {
 
   hidden: {
-      // opacity: 0 ,
-    },
-    hover: {
-      scale: 1.1,
-      textShadow: '0px 0px 8px rgba(255, 255, 255)',
-      boxShadow: '0px 0px 8px rgba(255, 255, 255)',
-      transition: {
-        duration: 0.2,
-        yoyo: Infinity,
-      }
+    // opacity: 0 ,
   },
-  tap: { 
-    scale: 0.9 
-  },
-  visible: { 
-    scale: 1, 
-    opacity: 1,
-    transition: { 
-      type: 'tween' 
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgba(255, 255, 255)',
+    boxShadow: '0px 0px 8px rgba(255, 255, 255)',
+    transition: {
+      duration: 0.2,
+      yoyo: Infinity,
     }
+  },
+  tap: {
+    scale: 0.9
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: 'tween'
+    }
+  },
+}
+
+export const homeContainerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      type: 'tween'
+    }
+  },
+  exit: {
+    x: '-100vw',
+    transition: {
+      ease: 'easeInOut'
+    },
   },
 }
 
 const Home = () => {
   return (
-    <div className="home container">
+    <motion.div
+      variants={homeContainerVariants}
+      initial='hidden'
+      animate='visible'
+      exit='exit'
+      className="home container"
+    >
       <motion.h2
         variants={headerVariants}
         initial='hidden'
@@ -83,7 +107,7 @@ const Home = () => {
           </motion.button>
         </motion.div>
       </Link>
-    </div>
+    </motion.div>
   )
 }
 
