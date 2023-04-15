@@ -34,12 +34,16 @@ export const baseVariants = {
 export const buttonVariant = {
 
   hidden: {
-      // opacity: 0 
+      // opacity: 0 ,
     },
-  hover: {
-    scale: 1.1,
-    textShadow: '0px 0px 8px rgba(255, 255, 255)',
-    boxShadow: '0px 0px 8px rgba(255, 255, 255)',
+    hover: {
+      scale: 1.1,
+      textShadow: '0px 0px 8px rgba(255, 255, 255)',
+      boxShadow: '0px 0px 8px rgba(255, 255, 255)',
+      transition: {
+        duration: 0.2,
+        yoyo: Infinity,
+      }
   },
   tap: { 
     scale: 0.9 
