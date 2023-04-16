@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { containerVariants } from './Base';
 import { useState } from 'react';
@@ -13,8 +13,15 @@ const childVariants = {
   }
 }
 
-const Order = ({ pizza }) => {
+const Order = ({ pizza, setShowModal }) => {
   const [showTitle, setShowTitle] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 5000);
+  }, [setShowModal])
+  
   setTimeout(() => {
     setShowTitle(false);
   }, 4000);
